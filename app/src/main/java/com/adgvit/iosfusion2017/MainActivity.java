@@ -79,6 +79,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         @Override
         public boolean onFling(MotionEvent event1, MotionEvent event2, float velocityX, float velocityY) {
+            if(login == true) {
+                    Intent i = new Intent(MainActivity.this, NavDraActivity.class);
+                    startActivity(i);
+                } else {
             if(event2.getY() < event1.getY()) {
                 //down to up swipe
                 //check for authentication here
@@ -86,6 +90,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             else if(event2.getY() > event1.getY()) {
                 //up to down swipe
+            }
+            return true;
             }
             return true;
         }
